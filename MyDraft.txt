@@ -1,0 +1,27 @@
+trafci.sh 只返回查询结果 只能grep 过滤
+delete table delete with no rollup| PURGEDATA myschema.mytable 
+
+2017/05/25
+出问题前所做的操作：
+0.使cluster 1 离线 xdc -delete in the  one  of clusters but didn't push
+1.cleanat
+2.hbase org.apache.hadoop.hbase.mapreduce.CopyTable --peer.adr=<zookeeper-quorum>:<zookeeper-client-port>:<hbase-root-znode-path> <synchronous-table-name> 
+
+问题：
+*** ERROR[29157] Server aborted abnormally or Connection timed out
+*** ERROR[29160] The message header was not long enough
+*** ERROR[29157] Server aborted abnormally or Connection timed out
+*** ERROR[29160] The message header was not long enough
+ 出现时间：trafci --> alter table TRAFODION.XUJI.E_MP_DAY_ENERGY_P ATTRIBUTES NO REPLICATION;
+Core file: 
+[trafodion@gy07 test.ha]$ ll /disk4/local_gen_core_files/
+total 3356976
+-rw------- 1 trafodion trafodion   25165824 May  1 15:42 core.python.root.1347.1493624547
+-rw------- 1 trafodion trafodion   31100928 May  1 15:39 core.python.root.31469.1493624373
+-rw------- 1 trafodion trafodion   25165824 May  1 15:41 core.python.root.59205.1493624475
+-rw------- 1 trafodion trafodion 2030632960 May 25 20:33 core.tm.root.13815.1495715594
+-rw------- 1 trafodion trafodion 2048339968 May 25 13:46 core.tm.root.22794.1495691182
+-rw------- 1 trafodion trafodion 2044112896 May 25 11:14 core.tm.root.27176.1495682071
+-rw------- 1 trafodion trafodion 2047569920 May 25 13:55 core.tm.root.4493.1495691701
+-rw------- 1 trafodion trafodion 2053050368 May 25 18:14 core.tm.root.62211.1495707248
+-rw------- 1 trafodion trafodion 2041049088 May 25 11:50 core.tm.root.8020.1495684235
